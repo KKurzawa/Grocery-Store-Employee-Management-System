@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Employee extends Model {}
+class TimePunch extends Model {}
 
-Employee.init(
+TimePunch.init(
     {
 
         id: {
@@ -12,35 +12,26 @@ Employee.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        first_name: {
-            type: DataTypes.STRING,
+        date: {
+            type: DataTypes.DATEONLY,
+            defaultValue: DataTypes.NOW,
             allowNull: false,
         },
-        last_name: {
-            type: DataTypes.STRING,
+        clock_in: {
+            type: DataTypes.TIME,
+            defaultValue: DataTypes.NOW,
             allowNull: false,
         },
-        user_id: {
+        clock_out: {
+            type: DataTypes.TIME,
+            defaultValue: DataTypes.NOW,
+            allowNull: false,
+        },
+        employee_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'users',
-                key: 'id',
-            },
-        },
-        role_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'roles',
-                key: 'id',
-            },
-        },
-        manager_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'managers',
+                model: 'employees',
                 key: 'id',
             },
         },
@@ -50,8 +41,8 @@ Employee.init(
         sequelize,
         timestamps: false,
         underscored: true,
-        modelName: 'employees',
+        modelName: 'time_punches',
     }
 );
 
-module.exports = Employee;
+module.exports = TimePunch;
