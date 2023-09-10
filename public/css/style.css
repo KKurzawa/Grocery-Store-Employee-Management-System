@@ -1,0 +1,12 @@
+.navbar {
+    background-color: darkblue;
+}
+
+.body {
+    background-color: lightblue;
+}
+
+.companyName{
+    color: darkblue;
+    font-size: 50px;
+}
