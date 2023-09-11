@@ -17,7 +17,22 @@
     <nav class="navbar navbar-expand-lg  d-flex justify-content-center p-3">
         <h1 class="navbar-brand fs-1 text-white">Logo Placeholder</h1>
     </nav>
-    <section class="d-flex justify-content-center">
+    {{#if logged_in}}
+    <a href="/profile"></a>
+    {{else}}
+    <a href="/login">login</a>
+    {{/if}}
+    <main class="container container-fluid mt-5">
+        <!-- Render the sub layout -->
+        {{{ body }}}
+    </main>
+
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+
+    {{!-- <section class="d-flex justify-content-center">
         <div class="card border-dark mt-5 mb-3" style="width: 12rem;">
             <div class="card-body">
                 <h5 class="card-title text-center">Please log in to access employee information.</h5>
@@ -36,32 +51,10 @@
             </div>
             <button type="submit" class="btn btn-primary mt-3 mb-5" href="/login">Submit</button>
         </form>
-    </div>
+    </div> --}}
     <footer>
         <h2 class="companyName text-center">Grady's Groceries</h2>
     </footer>
-    <nav>
-        <!-- Conditionally render login or logout links -->
-        {{!-- {{#if logged_in}} --}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{!-- {{else}} --}}
-        <a href="/login">login</a>
-        {{!-- {{/if}} --}}
-    </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-        <!-- Render the sub layout -->
-        {{{ body }}}
-    </main>
-
-
-
-    <!-- Render script for logged in users only -->
-    {{!-- {{#if logged_in}} --}}
-    {{!--
-    <script src="/js/logout.js"></script> --}}
-    {{!-- {{/if}} --}}
 </body>
 
 </html>
