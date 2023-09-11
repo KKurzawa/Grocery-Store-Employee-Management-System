@@ -40,10 +40,9 @@
         </div> --}}
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a>
-        <button class="no-button" id="logout">logout</button>
+        <a href="/profile"></a>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login"></a>
         {{/if}}
         <div>
             {{{ body }}}
@@ -52,16 +51,15 @@
     <footer>
         <h2 class="companyName text-center">Grady's Groceries</h2>
     </footer>
-    </header>
+
 
 
 
 
     <!-- Render script for logged in users only -->
-    {{!-- {{#if logged_in}} --}}
-    {{!--
-    <script src="/js/logout.js"></script> --}}
-    {{!-- {{/if}} --}}
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>
