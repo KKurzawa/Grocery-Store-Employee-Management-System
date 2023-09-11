@@ -24,7 +24,7 @@ Employee.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'users',
+                model: 'user',
                 key: 'id',
             },
         },
@@ -32,7 +32,7 @@ Employee.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'roles',
+                model: 'role',
                 key: 'id',
             },
         },
@@ -40,7 +40,7 @@ Employee.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'managers',
+                model: 'manager',
                 key: 'id',
             },
         },
@@ -50,7 +50,7 @@ Employee.init(
         sequelize,
         timestamps: false,
         underscored: true,
-        modelName: 'employees',
+        modelName: 'employee',
     }
 );
 
