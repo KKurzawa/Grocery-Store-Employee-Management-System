@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class TimePunch extends Model {}
+class Timepunch extends Model {}
 
-TimePunch.init(
+Timepunch.init(
     {
 
         id: {
@@ -14,24 +14,21 @@ TimePunch.init(
         },
         date: {
             type: DataTypes.DATEONLY,
-            defaultValue: DataTypes.NOW,
             allowNull: false,
         },
         clock_in: {
             type: DataTypes.TIME,
-            defaultValue: DataTypes.NOW,
             allowNull: false,
         },
         clock_out: {
             type: DataTypes.TIME,
-            defaultValue: DataTypes.NOW,
-            allowNull: false,
+            allowNull: true,
         },
         employee_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'employees',
+                model: 'employee',
                 key: 'id',
             },
         },
@@ -41,8 +38,9 @@ TimePunch.init(
         sequelize,
         timestamps: false,
         underscored: true,
-        modelName: 'time_punches',
+        freezeTableName: true,
+        modelName: 'timepunch',
     }
 );
 
-module.exports = TimePunch;
+module.exports = Timepunch;

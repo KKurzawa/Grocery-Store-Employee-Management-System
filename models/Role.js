@@ -24,7 +24,7 @@ Role.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'departments',
+                model: 'department',
                 key: 'id',
             },
         },
@@ -34,7 +34,8 @@ Role.init(
         sequelize,
         timestamps: false,
         underscored: true,
-        modelName: 'roles',
+        freezeTableName: true,
+        modelName: 'role',
     }
 );
 

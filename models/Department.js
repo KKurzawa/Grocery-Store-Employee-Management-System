@@ -22,7 +22,8 @@ Department.init(
         sequelize,
         timestamps: false,
         underscored: true,
-        modelName: 'departments',
+        freezeTableName: true,
+        modelName: 'department',
     }
 );
 
