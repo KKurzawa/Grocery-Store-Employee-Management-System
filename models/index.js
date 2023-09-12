@@ -10,7 +10,7 @@ User.hasMany(Employee, {
     onDelete: 'CASCADE',
   });
 
-  Employee.belongsTo(User, {
+Employee.belongsTo(User, {
     foreignKey: 'user_id',
   });
 
@@ -19,7 +19,7 @@ Employee.hasMany(Timepunch, {
     onDelete: 'CASCADE',
   });
 
-  Timepunch.belongsTo(Employee, {
+Timepunch.belongsTo(Employee, {
     foreignKey: 'employee_id',
   });
 
@@ -28,7 +28,7 @@ Role.hasMany(Employee, {
     onDelete: 'CASCADE',
   });
 
-  Employee.belongsTo(Role, {
+Employee.belongsTo(Role, {
     foreignKey: 'role_id',
   });
 
@@ -37,7 +37,7 @@ Department.hasMany(Role, {
     onDelete: 'CASCADE',
   });
 
-  Role.belongsTo(Department, {
+Role.belongsTo(Department, {
     foreignKey: 'department_id',
   });
 
@@ -46,7 +46,7 @@ Manager.hasMany(Employee, {
     onDelete: 'CASCADE',
   });
   
-  Employee.belongsTo(Manager, {
+Employee.belongsTo(Manager, {
     foreignKey: 'manager_id',
   });
 
@@ -55,7 +55,7 @@ Department.hasMany(Manager, {
     onDelete: 'CASCADE',
   });
   
-  Manager.belongsTo(Department, {
+Manager.belongsTo(Department, {
     foreignKey: 'department_id',
   });
 
