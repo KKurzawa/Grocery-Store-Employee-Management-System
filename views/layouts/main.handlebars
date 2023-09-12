@@ -17,12 +17,27 @@
     <nav class="navbar navbar-expand-lg  d-flex justify-content-center p-3">
         <h1 class="navbar-brand fs-1 text-white">Logo Placeholder</h1>
     </nav>
+
+    {{#if logged_in}}
+    <a href="/profile"></a>
+    {{else}}
+    <a href="/login">login</a>
+    {{/if}}
     <main class="container container-fluid mt-5">
-        {{!-- <section class="d-flex justify-content-center">
-            <div class="card border-dark mt-5 mb-3" style="width: 12rem;">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Please log in to access employee information.</h5>
-                </div>
+        <!-- Render the sub layout -->
+        {{{ body }}}
+    </main>
+
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+
+    {{!-- <section class="d-flex justify-content-center">
+        <div class="card border-dark mt-5 mb-3" style="width: 12rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Please log in to access employee information.</h5>
+
             </div>
         </section>
         <div class="d-flex justify-content-center">
@@ -48,20 +63,25 @@
         <div>
             {{{ body }}}
         </div>
-    </main>
+
+    </section>
+    <div class="d-flex justify-content-center">
+        <form style="width: 12rem;">
+            <div class="form-group">
+                <label for="exampleUsername">Username</label>
+                <input type="username" class="form-control" id="exampleUsername" placeholder="Enter Username">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3 mb-5" href="/login">Submit</button>
+        </form>
+    </div> --}}
     <footer>
         <h2 class="companyName text-center">Grady's Groceries</h2>
     </footer>
-    </header>
 
-
-
-
-    <!-- Render script for logged in users only -->
-    {{!-- {{#if logged_in}} --}}
-    {{!--
-    <script src="/js/logout.js"></script> --}}
-    {{!-- {{/if}} --}}
 </body>
 
 </html>
