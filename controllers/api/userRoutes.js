@@ -6,13 +6,12 @@ router.post('/', async (req, res) => {
     try {
         const userData = await User.create({
             username: req.body.username,
-            email: req.body.email,
             password: req.body.password,
         });
 
         req.session.save(() => {
-            // req.session.user_id = userData.id;
-            req.session.loggedIn = true;
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
 
             res.status(200).json(userData);
         });
@@ -25,7 +24,7 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req,res) => {
     try {
         const userData = await User.findOne({
-            where: { email: req.body.email },
+            where: { username: req.body.username },
         });
 
         if (!userData) {
@@ -41,7 +40,7 @@ router.post('/login', async (req,res) => {
         }
         
         req.session.save(() => {
-            req.session.loggedIn = true;
+            req.session.logged_in = true;
 
             res.status(200).json({ user: userData, message: 'Log in was successful!' });
         });
@@ -52,12 +51,12 @@ router.post('/login', async (req,res) => {
 
 // Logout
 router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
         req.session.destroy(() => {
-            res.status(204).end();
+            res.status(200).end();
         });
     } else {
-        res.status(404).end();
+        res.status(400).end();
     }
 });
 
