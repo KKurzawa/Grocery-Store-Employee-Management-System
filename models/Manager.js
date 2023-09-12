@@ -16,7 +16,7 @@ Manager.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'departments',
+                model: 'department',
                 key: 'id',
             },
         },
@@ -26,7 +26,8 @@ Manager.init(
         sequelize,
         timestamps: false,
         underscored: true,
-        modelName: 'managers',
+        freezeTableName: true,
+        modelName: 'manager',
     }
 );
 

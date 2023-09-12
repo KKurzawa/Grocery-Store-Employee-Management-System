@@ -17,6 +17,7 @@
     <nav class="navbar navbar-expand-lg  d-flex justify-content-center p-3">
         <h1 class="navbar-brand fs-1 text-white">Logo Placeholder</h1>
     </nav>
+
     {{#if logged_in}}
     <a href="/profile"></a>
     {{else}}
@@ -36,8 +37,33 @@
         <div class="card border-dark mt-5 mb-3" style="width: 12rem;">
             <div class="card-body">
                 <h5 class="card-title text-center">Please log in to access employee information.</h5>
+
             </div>
+        </section>
+        <div class="d-flex justify-content-center">
+            <form style="width: 12rem;">
+                <div class="form-group">
+                    <label for="exampleUsername">Username</label>
+                    <input type="username" class="form-control" id="exampleUsername" placeholder="Enter Username">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+                </div>
+                <button type="submit" class="btn btn-primary mt-3 mb-5" href="/login">Submit</button>
+            </form>
+        </div> --}}
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/profile">profile</a>
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+        <div>
+            {{{ body }}}
         </div>
+
     </section>
     <div class="d-flex justify-content-center">
         <form style="width: 12rem;">
@@ -55,6 +81,7 @@
     <footer>
         <h2 class="companyName text-center">Grady's Groceries</h2>
     </footer>
+
 </body>
 
 </html>
