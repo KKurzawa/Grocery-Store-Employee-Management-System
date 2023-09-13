@@ -1,0 +1,152 @@
+[
+    {
+        "date": "2023-09-18",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 1
+    },
+    {
+        "date": "2023-09-17",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 1
+    },
+    {
+        "date": "2023-09-16",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 1
+    },
+    {
+        "date": "2023-09-15",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 1
+    },
+    {
+        "date": "2023-09-14",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 1
+    },
+    {
+        "date": "2023-09-18",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 2
+    },
+    {
+        "date": "2023-09-17",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 2
+    },
+    {
+        "date": "2023-09-16",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 2
+    },
+    {
+        "date": "2023-09-15",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 2
+    },
+    {
+        "date": "2023-09-14",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 2
+    },
+    {
+        "date": "2023-09-18",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 3
+    },
+    {
+        "date": "2023-09-17",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 3
+    },
+    {
+        "date": "2023-09-16",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 3
+    },
+    {
+        "date": "2023-09-15",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 3
+    },
+    {
+        "date": "2023-09-14",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 3
+    },
+    {
+        "date": "2023-09-18",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 4
+    },
+    {
+        "date": "2023-09-17",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 4
+    },
+    {
+        "date": "2023-09-16",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 4
+    },
+    {
+        "date": "2023-09-15",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 4
+    },
+    {
+        "date": "2023-09-14",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 4
+    },
+    {
+        "date": "2023-09-18",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 5
+    },
+    {
+        "date": "2023-09-17",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 5
+    },
+    {
+        "date": "2023-09-16",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 5
+    },
+    {
+        "date": "2023-09-15",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 5
+    },
+    {
+        "date": "2023-09-14",
+        "clock_in": "08:00",
+        "clock_out": "16:00",
+        "employee_id": 5
+    }
+]
