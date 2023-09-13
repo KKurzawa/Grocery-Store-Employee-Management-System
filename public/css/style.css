@@ -10,3 +10,21 @@
     color: darkblue;
     font-size: 50px;
 }
+
+#questions{
+    background-color: white;
+}
+
+@media screen and (max-width: 912px) {
+    .navbar {
+      display: flex;
+      flex-direction: column;
+    }
+    #motto1 {
+        margin-bottom: -1em;
+          
+    }
+    #motto2 {
+        margin-top: -1em;
+    }
+}
