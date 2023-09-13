@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "role_name": "Produce Department Manager",
+        "salary": 30000,
+        "department_id": 1 
+    },
+    {
+        "id": 2,
+        "role_name": "Customer Service Department Manager",
+        "salary": 30000,
+        "department_id": 2 
+    },
+    {
+        "id": 3,
+        "role_name": "Meat & Seafood Department Manager",
+        "salary": 30000,
+        "department_id": 3 
+    },
+    {
+        "id": 4,
+        "role_name": "Frozen Department Manager",
+        "salary": 30000,
+        "department_id": 4 
+    },
+    {
+        "id": 5,
+        "role_name": "Bakery Department Manager",
+        "salary": 30000,
+        "department_id": 5 
+    }
+]

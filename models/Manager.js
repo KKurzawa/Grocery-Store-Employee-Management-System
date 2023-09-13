@@ -20,6 +20,10 @@ Manager.init(
                 key: 'id',
             },
         },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
     },
     {
 

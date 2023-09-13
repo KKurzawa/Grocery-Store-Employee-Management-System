@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "department_id": 1,
+        "name": "R. Huffman"
+    },
+    {
+        "id": 2,
+        "department_id": 2,
+        "name": "M. hayes"
+    },
+    {
+        "id": 3,
+        "department_id": 3,
+        "name": "I. Parsons"
+    },
+    {
+        "id": 4,
+        "department_id": 4,
+        "name": "A. Smith"
+    },
+    {
+        "id": 5,
+        "department_id": 5,
+        "name": "J. Sawyer"
+    }
+]
