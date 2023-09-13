@@ -15,20 +15,34 @@
 
 <body class="body">
     <nav class="navbar">
-    <div class="dropdown" style="margin-left: 50px">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    User
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item-logout" href="/login">Logout</a>
-    <a class="dropdown-item-profile" href="/profile">Profile</a>
-  </div>
-</div>
-<div class="motto" style="font-size: 50px;color:white">Get Groceries!</div>
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200"><circle cx="50%" cy="50%" r="60" height="70%" width="70%" fill="White"/><text x="150" y="125" font-size="60" text-anchor="middle" fill="DarkBlue">G.G.</text></svg>
-<div class="motto" style="font-size: 50px;color:white">Get Grady's!</div>
-    <button class="questions" style="margin-right: 50px" id="questions">Questions?</button>
-</nav>
+        {{!-- <div class="dropdown" style="margin-left: 50px">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                User
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item-logout" href="/login">Logout</a>
+                <a class="dropdown-item-profile" href="/profile">Profile</a>
+            </div>
+        </div> --}}
+        <div class="dropdown ms-5 me-5">
+            <button class="btn btn-light dropdown-toggle border border-secondary" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                User
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+            </ul>
+        </div>
+        <div class="motto" id="motto1" style="font-size: 30px;color:white">Get Groceries!</div>
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="300" height="200">
+            <circle cx="50%" cy="50%" r="60" height="70%" width="70%" fill="White" /><text x="150" y="125"
+                font-size="60" text-anchor="middle" fill="DarkBlue">G.G.</text>
+        </svg>
+        <div class="motto" id="motto2" style="font-size: 30px;color:white">Get Grady's!</div>
+        <button class="questions border border-secondary rounded ms-5 me-5" id="questions">Questions?</button>
+    </nav>
     <main class="container container-fluid mt-5">
         {{!-- <section class="d-flex justify-content-center">
             <div class="card border-dark mt-5 mb-3" style="width: 12rem;">
@@ -52,10 +66,10 @@
         </div> --}}
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a>
+        <a href="/profile"></a>
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login"></a>
         {{/if}}
         <div>
             {{{ body }}}
@@ -74,6 +88,9 @@
     {{!--
     <script src="/js/logout.js"></script> --}}
     {{!-- {{/if}} --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
