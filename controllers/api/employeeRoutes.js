@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const employeeData = await Employee.findByPk(req.params.id, {
-            include: [{ model: User, Role, Manager }]
+            include: [{ model: User }, { model: Role }, { model: Manager }]
         });
 
         if (!employeeData) {
