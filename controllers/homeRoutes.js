@@ -2,15 +2,17 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
-    res.render('login');
+    res.render('login', { loggedIn: false });
 });
 
-router.get('/profile', withAuth, (req, res) => {
-    res.render('profile');
+
+router.get('/profile', async (req, res) => {
+    res.render('profile', { loggedIn: true });
 });
 
-router.get('/questions', withAuth, (req, res) => {
-    res.render('questions');
+router.get('/questions', (req, res) => {
+    res.render('questions', { loggedIn: true });
+
 });
 
 router.get('/timecard', withAuth, (req, res) => {

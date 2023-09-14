@@ -10,10 +10,12 @@
     color: darkblue;
     font-size: 50px;
 }
-
-#questions{
+/* 
+#questions, 
+#userDropdown {
     background-color: white;
-}
+    visibility: hidden;
+} */
 
 @media screen and (max-width: 912px) {
     .navbar {
