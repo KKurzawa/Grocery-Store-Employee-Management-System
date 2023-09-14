@@ -28,5 +28,35 @@
         "role_name": "Bakery Department Manager",
         "salary": 30000,
         "department_id": 5 
+    },
+    {
+        "id": 6,
+        "role_name": "Stocker",
+        "salary": 14000,
+        "department_id": 1 
+    },
+    {
+        "id": 7,
+        "role_name": "Cashier",
+        "salary": 14000,
+        "department_id": 2 
+    },
+    {
+        "id": 8,
+        "role_name": "Butcher",
+        "salary": 16000,
+        "department_id": 3 
+    },
+    {
+        "id": 9,
+        "role_name": "Stocker",
+        "salary": 14000,
+        "department_id": 4 
+    },
+    {
+        "id": 10,
+        "role_name": "Baker",
+        "salary": 15000,
+        "department_id": 5 
     }
 ]

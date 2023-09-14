@@ -23,5 +23,30 @@
         "id": 5,
         "username": "j.sawyer",
         "password": "test123"
+    },
+    {
+        "id": 6,
+        "username": "w.gross",
+        "password": "test123"
+    },
+    {
+        "id": 7,
+        "username": "d.dixon",
+        "password": "test123"
+    },
+    {
+        "id": 8,
+        "username": "l.hicks",
+        "password": "test123"
+    },
+    {
+        "id": 9,
+        "username": "h.stafford",
+        "password": "test123"
+    },
+    {
+        "id": 10,
+        "username": "f.arnold",
+        "password": "test123"
     }
 ]
