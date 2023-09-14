@@ -1,48 +1,57 @@
 const router = require('express').Router();
+const bcrypt = require('bcrypt');
 const { User } = require('../../models');
 
 // CREATE new user
 router.post('/', async (req, res) => {
     try {
-        const userData = await User.create({
-            username: req.body.username,
-            password: req.body.password,
-        });
+        // Get the array of user data from the request body
+        const users = req.body;
 
-        req.session.save(() => {
-            req.session.user_id = userData.id;
-            req.session.logged_in = true;
+        // Hash the passwords for all users in the array
+        const hashedUsers = await Promise.all(users.map(async (user) => {
+            const hashedPassword = await bcrypt.hash(user.password, 10);
+            return {
+                username: user.username,
+                password: hashedPassword,
+            };
+        }));
 
-            res.status(200).json(userData);
-        });
+        // Create multiple user records with hashed passwords
+        const createdUsers = await User.bulkCreate(hashedUsers);
+
+        res.status(200).json(createdUsers);
     } catch (err) {
-      res.status(400).json(err);  
+        res.status(400).json({ error: err.message });
     }
 });
 
 // Login
-router.post('/login', async (req,res) => {
+router.post('/login', async (req, res) => {
     try {
+        const { username, password } = req.body;
+
+        // Find the user by username
         const userData = await User.findOne({
-            where: { username: req.body.username },
+            where: { username },
         });
 
         if (!userData) {
-            res.status(400).json({ message: 'Incorrect email or password. Please try again!'});
-            return;
+            return res.status(400).json({ message: 'Incorrect username or password. Please try again!' });
         }
 
-        const validPassword = await userData.checkPassword(req.body.password);
+        // Compare the provided password with the hashed password in the database
+        const passwordMatch = await bcrypt.compare(password, userData.password);
 
-        if (!validPassword) {
-            res.status(400).json({ message: 'Incorrect email or password. Please try again!'});
-            return;
+        if (!passwordMatch) {
+            return res.status(400).json({ message: 'Incorrect username or password. Please try again!' });
         }
-        
+
+        // If the password matches, set the session to indicate the user is logged in
         req.session.save(() => {
+            req.session.user_id = userData.id
             req.session.logged_in = true;
-
-            res.status(200).json({ user: userData, message: 'Log in was successful!' });
+            res.status(200).json({ user: userData, message: 'Login was successful!' });
         });
     } catch (err) {
         res.status(400).json(err);

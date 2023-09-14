@@ -1,4 +1,3 @@
-const seedUsers = require('./userData.json');
 const seedEmployees = require('./employeeData.json');
 const seedRoles = require('./roleData.json');
 const seedManagers = require('./managerData.json');
@@ -9,14 +8,9 @@ const sequelize = require('../config/connection');
 const { User, Employee, Role, Manager, Department, Timepunch } = require('../models');
 
 const seedDatabase = async () => {
-    await sequelize.sync({ force: true });
+    await sequelize.sync();
 
     await Department.bulkCreate(seedDepartments, {
-        individualHooks: true,
-        returning: true,
-    });
-
-    await User.bulkCreate(seedUsers, {
         individualHooks: true,
         returning: true,
     });
