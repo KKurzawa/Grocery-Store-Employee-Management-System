@@ -16,7 +16,11 @@ router.get('/questions', (req, res) => {
 });
 
 router.get('/timecard', withAuth, (req, res) => {
-    res.render('timecard');
+    res.render('timecard', { loggedIn: true });
+});
+
+router.get('/clock', withAuth, (req, res) => {
+    res.render('clock', { loggedIn: true });
 });
 
 module.exports = router;
