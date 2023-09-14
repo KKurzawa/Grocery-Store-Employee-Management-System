@@ -2,12 +2,20 @@
         <div class="card border-dark w-75 p-5" style="display: flex; flex-wrap:wrap align-content:center;" style="width: 75%;" style="height:75%;">
             <div class="card-body">
 
-<div class="user-buttons d-flex justify-content-row justify-content-center justify-content-md-around"> 
-      <div class="clock">
-        <button type="submit" style="display: flex;" class="btn btn-primary">Clock</button>
-      </div>
+<div class="user-buttons"> 
+      <div class="clock" style="display: flex; justify-content:center; justify-content:space-between;">
+         <div id="clockBtn"></div>
+        <a href="/clock">
+        <button type="button" class="btn btn-primary" id="timecardBtn">Clock</button>
+        <a/>
+        </button>
       <div class="time-card" style="display: flex;">
-        <button type="submit" class="btn btn-primary">Time Card</button>
+        <div id="timecardBtn"></div>
+        <a href="/timecard">
+        <button type="button" class="btn btn-primary" id="timecardBtn">Time Card</button>
+        <a/>
+        </button>
+      
       </div>
         </div>
         </div>
@@ -95,3 +103,5 @@
       </div>
         </div>
 </section>
+
+<script src="./js/profile.js"></script>
