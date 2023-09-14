@@ -86,7 +86,8 @@ function getLastMonday() {
   });
 
 // CREATE a timepunch
-router.post('/', async (req, res) => {
+router.post('/in', async (req, res) => {
+ 
     try {
         const timepunchData = await Timepunch.create(req.body);
         res.status(200).json(timepunchData);
@@ -96,10 +97,16 @@ router.post('/', async (req, res) => {
 });
 
 // UPDATE a timepunch
-router.put('/:id', async (req, res) => {
+router.put('/out/:id', async (req, res) => {
+    const userId = req.params.id;
+    // const today = new Date().toISOString().slice(0, 10);
+    const today = "2023-09-21";
     try {
         const timepunchData = await Timepunch.update(req.body, {
-            where: {id: req.params.id}
+            where: {
+                employee_id: userId,
+                date: today
+            }
         });
         if (!timepunchData) {
             res.status(400).json({ message: 'No time punch with that id!' });
