@@ -1,11 +1,5 @@
 [
     {
-        "date": "2023-09-18",
-        "clock_in": "08:00",
-        "clock_out": "16:00",
-        "employee_id": 1
-    },
-    {
         "date": "2023-09-15",
         "clock_in": "08:00",
         "clock_out": "16:00",
@@ -64,12 +58,6 @@
         "clock_in": "08:00",
         "clock_out": "16:00",
         "employee_id": 1
-    },
-    {
-        "date": "2023-09-18",
-        "clock_in": "08:00",
-        "clock_out": "16:00",
-        "employee_id": 2
     },
     {
         "date": "2023-09-15",
@@ -132,12 +120,6 @@
         "employee_id": 2
     },
     {
-        "date": "2023-09-18",
-        "clock_in": "08:00",
-        "clock_out": "16:00",
-        "employee_id": 3
-    },
-    {
         "date": "2023-09-15",
         "clock_in": "08:00",
         "clock_out": "16:00",
@@ -196,12 +178,6 @@
         "clock_in": "08:00",
         "clock_out": "16:00",
         "employee_id": 3
-    },
-    {
-        "date": "2023-09-18",
-        "clock_in": "08:00",
-        "clock_out": "16:00",
-        "employee_id": 4
     },
     {
         "date": "2023-09-15",
@@ -264,12 +240,6 @@
         "employee_id": 4
     },
     {
-        "date": "2023-09-18",
-        "clock_in": "08:00",
-        "clock_out": "16:00",
-        "employee_id": 5
-    },
-    {
         "date": "2023-09-15",
         "clock_in": "08:00",
         "clock_out": "16:00",
@@ -328,12 +298,6 @@
         "clock_in": "08:00",
         "clock_out": "16:00",
         "employee_id": 5
-    },
-    {
-        "date": "2023-09-18",
-        "clock_in": "08:00",
-        "clock_out": "16:00",
-        "employee_id": 6
     },
     {
         "date": "2023-09-15",
@@ -396,12 +360,6 @@
         "employee_id": 6
     },
     {
-        "date": "2023-09-18",
-        "clock_in": "08:00",
-        "clock_out": "16:00",
-        "employee_id": 7
-    },
-    {
         "date": "2023-09-15",
         "clock_in": "08:00",
         "clock_out": "16:00",
@@ -460,12 +418,6 @@
         "clock_in": "08:00",
         "clock_out": "16:00",
         "employee_id": 7
-    },
-    {
-        "date": "2023-09-18",
-        "clock_in": "08:00",
-        "clock_out": "16:00",
-        "employee_id": 8
     },
     {
         "date": "2023-09-15",
@@ -528,12 +480,6 @@
         "employee_id": 8
     },
     {
-        "date": "2023-09-18",
-        "clock_in": "08:00",
-        "clock_out": "16:00",
-        "employee_id": 9
-    },
-    {
         "date": "2023-09-15",
         "clock_in": "08:00",
         "clock_out": "16:00",
@@ -592,12 +538,6 @@
         "clock_in": "08:00",
         "clock_out": "16:00",
         "employee_id": 9
-    },
-    {
-        "date": "2023-09-18",
-        "clock_in": "08:00",
-        "clock_out": "16:00",
-        "employee_id": 10
     },
     {
         "date": "2023-09-15",
