@@ -19,7 +19,7 @@ router.get('/timecard', withAuth, (req, res) => {
     res.render('timecard', { loggedIn: true });
 });
 
-router.get('/clock', withAuth, (req, res) => {
+router.get('/clock', (req, res) => {
     res.render('clock', { loggedIn: true });
 });
 

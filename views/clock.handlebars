@@ -4,17 +4,18 @@
         <div>
         <div class="circle" style="height: 250px; width: 250px; background: white; border-radius: 50%; display: flex; flex-direction:column;  justify-content:center; padding: 0rem 3rem;">
         <div class="start time" style="font-size:30px; color:dimgray; font-weight:;">Start Time</div>
-        <div style="font-size:30px; font-weight:bold; color:Black;">12:00 PM</div>
-        <div class="Date" style="font-size:29px; color:dimgray; font-weight:;">Date</div>
+        <div id="counter" style="font-size:30px; font-weight:bold; color:Black;">12:00 PM</div>
+        <div class="date" style="font-size:29px; color:dimgray; font-weight:;">Date</div>
         </div>
         </div>
         <div class="filler" style="width:50px;height: 250px; color:lightblue;">" "</div>
         <div>
-         <h1>Current Time</h1>
-        <h2>12:00:00 PM</h2>
-        <h3>Date</h3>
-        <div id="start_workbtn" class="button">Start Work</div>
+          <h1>Current Time</h1>
+          <h2 id="current_time">12:00:00 PM</h2>
+          <h3 class="date">Date</h3>
+            <div id="start_workbtn" class="button">Start Work</div>
 
-        <div id="stop_workbtn" class="button">Stop Work</div>
+            <div id="stop_workbtn" class="button">Stop Work</div>
         </div>
+        <script src="./js/clock.js"></script>
 </body>
