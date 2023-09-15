@@ -3,11 +3,11 @@
 
 ## Description
 
-An employee management system
+Business's and their emplyees need a way to keep track of employees schedule.  This employee management system for Grady's Groceries allows employees to see their role, shedule for the week, available hours for sick time off and vacation hours.  The employee can also see a graph of hours worked in the previous week, punch in and out for each shift, and submit any questions for management and request time off.  This site uses Handlebars, CSS, JavaScript, Bootstrap, Express, MySql, MySql2, Node, Apexcharts, Sequalize, JawsDb, Heroku, and Bcrypt.
 
 ## Usage
 
-
+Once the user logs in there are brought to their profile page that displays their schedule for the week.  From there the user can click on the 'Clock' button to clock in/out for a shift and click on the 'Time Card' button to view a graph of the previous weeks hours. The user also can click on the 'User' button to log out or view their profile page or click on the 'Questions' button to request time off or submit questions to management.
 
 Screenshots:
 ![Login]()
@@ -18,19 +18,19 @@ Screenshots:
 
 Website URL: 
 
-GitHub Repository: https://github.com/KKurzawa/Movie-Project
+GitHub Repository: https://github.com/KKurzawa/Grocery-Store-Employee-Management-System
 
 ## CREDITS
 
 Kris Kurzawa: https://github.com/KKurzawa
 
-Andrew Bostick: https://github.com/andbostick
+Bradley Dinnan: https://github.com/bsdinnan
 
-Lauren Lavelle: https://github.com/l-lavelle
+Gage Hamel: https://github.com/GageHamel
 
-Cameron Morin: https://github.com/Morinc35
+Giselle Torres-Villa: https://github.com/gtorresv
 
-TMBD API https://developer.themoviedb.org/docs
+Adrian Patton: https://github.com/apatton33
 
 ## LICENSE
 
