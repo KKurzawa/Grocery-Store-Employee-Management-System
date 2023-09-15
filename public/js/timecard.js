@@ -4,10 +4,10 @@ var options = {
     },
     series: [{
         name: 'Hours',
-        data: [4, 5, 6, 7, 4, 10, 3]
+        data: [5, 6, 7, 4, 10]
     }],
     xaxis: {
-        categories: ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
+        categories: ["Mon", "Tue", "Wed", "Thur", "Fri"]
     }
 }
 
