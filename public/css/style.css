@@ -40,3 +40,26 @@ body {
         margin-top: -1em;
     }
 }
+
+#start_workbtn{
+	padding: 1rem 3rem;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: dodgerblue;
+    text-align: center;
+}
+
+#stop_workbtn{
+    display: none;
+	padding: 1rem 3rem;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: red;
+    text-align: center;
+}
