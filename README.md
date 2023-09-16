@@ -10,12 +10,12 @@ Business's and their emplyees need a way to keep track of employees schedule.  T
 Once the user logs in there are brought to their profile page that displays their schedule for the week.  From there the user can click on the 'Clock' button to clock in/out for a shift and click on the 'Time Card' button to view a graph of the previous weeks hours. The user also can click on the 'User' button to log out or view their profile page or click on the 'Questions' button to request time off or submit questions to management.
 
 Screenshots:
-![Login]()
-![Profile]()
-![Timecard]()
-![Clock1]()
-![Clock2]()
-![Questions]()
+![Login](https://github.com/KKurzawa/Grocery-Store-Employee-Management-System/blob/main/assets/Login.png)
+![Profile](https://github.com/KKurzawa/Grocery-Store-Employee-Management-System/blob/main/assets/Profile.png)
+![Timecard](https://github.com/KKurzawa/Grocery-Store-Employee-Management-System/blob/main/assets/Timecard.png)
+![Clock1](https://github.com/KKurzawa/Grocery-Store-Employee-Management-System/blob/main/assets/Clock1.png)
+![Clock2](https://github.com/KKurzawa/Grocery-Store-Employee-Management-System/blob/main/assets/Clock2.png)
+![Questions](https://github.com/KKurzawa/Grocery-Store-Employee-Management-System/blob/main/assets/Questions.png)
 
 Website URL: 
 
