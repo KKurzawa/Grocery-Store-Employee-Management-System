@@ -13,7 +13,8 @@ Screenshots:
 ![Login]()
 ![Profile]()
 ![Timecard]()
-![Clock]()
+![Clock1]()
+![Clock2]()
 ![Questions]()
 
 Website URL: 
