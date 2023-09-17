@@ -30,27 +30,30 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-function getLastMonday() {
+function getMondayAndFriday() {
     const today = new Date();
     const dayOfWeek = today.getDay();
-    let diff;
-    if (dayOfWeek === 0) {
-      // If it's Sunday, calculate the previous Monday
-      diff = 6;
-    } else {
-      diff = today.getDate() - dayOfWeek + (dayOfWeek === 1 ? -6 : 1);
-    }
-    const lastMonday = new Date(today.setDate(today.getDate() - diff));
+    const monday = new Date(today);
+    const friday = new Date(today);
   
-    // Calculate the date of the following Friday
-    const nextFriday = new Date(lastMonday);
-    nextFriday.setDate(lastMonday.getDate() + 5); // Add 5 days to include Friday
+    if (dayOfWeek === 1) {
+      // If today is Monday, add 4 days to get to Friday
+      friday.setDate(today.getDate() + 4);
+    } else {
+      // Calculate the number of days to Monday and Friday
+      const daysUntilMonday = 1 - dayOfWeek; // Negative if today is after Monday
+      const daysUntilFriday = 5 - dayOfWeek; // Positive if today is before Friday
+  
+      // Set Monday and Friday accordingly
+      monday.setDate(today.getDate() + daysUntilMonday);
+      friday.setDate(today.getDate() + daysUntilFriday);
+    }
   
     // Format the dates as "yyyy-mm-dd"
-    const lastMondayFormatted = formatDate(lastMonday);
-    const nextFridayFormatted = formatDate(nextFriday);
+    const mondayFormatted = formatDate(monday);
+    const fridayFormatted = formatDate(friday);
   
-    return { start: lastMondayFormatted, end: nextFridayFormatted };
+    return { start: mondayFormatted, end: fridayFormatted };
   }
   
   // Function to format a date as "yyyy-mm-dd"
@@ -61,10 +64,10 @@ function getLastMonday() {
     return `${yyyy}-${mm}-${dd}`;
   }
 
-  router.get('/week/:id', async (req, res) => {
+  router.get('/week/5', async (req, res) => {
     try {
-      const userId = req.params.id;
-      const { start, end } = getLastMonday();
+      const userId = req.session.user_id;
+      const { start, end } = getMondayAndFriday();
   
       // Query the Timepunch model to find time punches of the specified user from last Monday to the following Friday
       const timePunches = await Timepunch.findAll({
@@ -78,7 +81,7 @@ function getLastMonday() {
         order: [['date', 'ASC']], // Adjust sorting as needed
       });
   
-      res.json(timePunches);
+      res.status(200).json(timePunches);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Internal server error' });
