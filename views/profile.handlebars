@@ -1,105 +1,106 @@
 <section class="user-container" style="display: flex; flex-wrap:wrap; justify-content:center; ">
-        <div class="card border-dark w-75 p-5" style="display: flex; flex-wrap:wrap align-content:center;" style="width: 75%;" style="height:75%;">
-            <div class="card-body">
+  <div class="card border-dark w-75 p-5" style="display: flex; flex-wrap:wrap align-content:center;" style="width: 75%;"
+    style="height:75%;">
+    <div class="card-body">
 
-<div class="user-buttons"> 
-      <div class="clock" style="display: flex; justify-content:center; justify-content:space-between;">
-         <div id="clockBtn"></div>
-        <a href="/clock">
-        <button type="button" class="btn btn-primary" id="timecardBtn">Clock</button>
-        <a/>
-        </button>
-      <div class="time-card" style="display: flex;">
-        <div id="timecardBtn"></div>
-        <a href="/timecard">
-        <button type="button" class="btn btn-primary" id="timecardBtn">Time Card</button>
-        <a/>
-        </button>
-      
-      </div>
-        </div>
-        </div>
-    
+      <div class="user-buttons">
+        <div class="clock" style="display: flex; justify-content:center; justify-content:space-between;">
+          <div id="clockBtn"></div>
+          <a href="/clock">
+            <button type="button" class="btn btn-primary" id="timecardBtn">Clock</button>
+            <a />
+            </button>
+            <div class="time-card" style="display: flex;">
+              <div id="timecardBtn"></div>
+              <a href="/timecard">
+                <button type="button" class="btn btn-primary" id="timecardBtn">Time Card</button>
+                <a />
+                </button>
 
-        <section class="employee-info-card" >
-  <div class="card-body" >
-
-      <div class="employee-info" style="display: flex; flex-wrap:wrap; justify-content:center;">
-        <div type="text" class="text-dark text-decoration-underline text-decoration-underline-bold">Employee:</div>
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Last</th>
-      <th scope="col">Role</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{first_name}}</td>
-      <td>{{last_name}}</td>
-      <td>{{role.role_name}}</td>
-    </tr>
-    <tr>
-  </tbody>
-</table>
-      </div>
-      <div class="schedule" style="display: flex; flex-wrap:wrap; justify-content:center;">
-        <div type="text" class="text-decoration-underline text-decoration-underline-bold">Schedule:</div>
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Day</th>
-      <th scope="col">In</th>
-      <th scope="col">Out</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Monday:</th>
-      <td>12:00pm</td>
-      <td>7:00pm</td>
-    </tr>
-    <tr>
-      <th scope="row">Tuesday:</th>
-      <td>12:00pm</td>
-      <td>7:00pm</td>
-    </tr>
-    <tr>
-      <th scope="row">Wednsday:</th>
-      <td>12:00pm</td>
-      <td>7:00pm</td>
-    </tr>
-    <tr>
-      <th scope="row">Thursday:</th>
-      <td>12:00pm</td>
-      <td>7:00pm</td>
-    </tr>
-    <tr>
-      <th scope="row">Friday:</th>
-      <td>12:00pm</td>
-      <td>7:00pm</td>
-    </tr>
-  </tbody>
-</table>
-      </div>
-      <div class="time-off" style="display: flex; flex-wrap:wrap; justify-content:center;">
-        <div type="text" class="text-decoration-underline text-decoration-underline-bold">Time Off:</div>
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Sick Time-off</th>
-      <th scope="col">Vacation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>30 hrs</td>
-      <td>48 hrs</td>
-    </tr>
-  </tbody>
-</table>
-      </div>
-      </div>
+            </div>
         </div>
+      </div>
+
+
+      <section class="employee-info-card">
+        <div class="card-body">
+
+          <div class="employee-info" style="display: flex; flex-wrap:wrap; justify-content:center;">
+            <div type="text" class="text-dark text-decoration-underline text-decoration-underline-bold">Employee:</div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{first_name}}</td>
+                  <td>{{last_name}}</td>
+                  <td>{{role.role_name}}</td>
+                </tr>
+                <tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="schedule" style="display: flex; flex-wrap:wrap; justify-content:center;">
+            <div type="text" class="text-decoration-underline text-decoration-underline-bold">Schedule:</div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Day</th>
+                  <th scope="col">In</th>
+                  <th scope="col">Out</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Monday:</th>
+                  <td>12:00pm</td>
+                  <td>7:00pm</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tuesday:</th>
+                  <td>12:00pm</td>
+                  <td>7:00pm</td>
+                </tr>
+                <tr>
+                  <th scope="row">Wednsday:</th>
+                  <td>12:00pm</td>
+                  <td>7:00pm</td>
+                </tr>
+                <tr>
+                  <th scope="row">Thursday:</th>
+                  <td>12:00pm</td>
+                  <td>7:00pm</td>
+                </tr>
+                <tr>
+                  <th scope="row">Friday:</th>
+                  <td>12:00pm</td>
+                  <td>7:00pm</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="time-off" style="display: flex; flex-wrap:wrap; justify-content:center;">
+            <div type="text" class="text-decoration-underline text-decoration-underline-bold">Time Off:</div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th id="sickText" scope="col">Sick Time-off</th>
+                  <th scope="col">Vacation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>30 hrs</td>
+                  <td>48 hrs</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
 </section>
