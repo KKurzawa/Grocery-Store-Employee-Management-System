@@ -87,9 +87,16 @@ function getLastMonday() {
 
 // CREATE a timepunch
 router.post('/in', async (req, res) => {
+    const date = new Date().toISOString().slice(0, 10);
+    const time = new Date().toLocaleTimeString([], { hour12: false });
+    const inData = {
+        date: date,
+        clock_in: time,
+        employee_id: req.session.user_id
+    };
  
     try {
-        const timepunchData = await Timepunch.create(req.body);
+        const timepunchData = await Timepunch.create(inData);
         res.status(200).json(timepunchData);
     } catch (err) {
         res.status(400).json(err);
@@ -97,15 +104,18 @@ router.post('/in', async (req, res) => {
 });
 
 // UPDATE a timepunch
-router.put('/out/:id', async (req, res) => {
-    const userId = req.params.id;
-    // const today = new Date().toISOString().slice(0, 10);
-    const today = "2023-09-21";
+router.put('/out', async (req, res) => {
+    const userId = req.session.user_id;
+    const date = new Date().toISOString().slice(0, 10);
+    const time = new Date().toLocaleTimeString([], { hour12: false });
+    const outData = {
+        clock_out: time
+    }
     try {
-        const timepunchData = await Timepunch.update(req.body, {
+        const timepunchData = await Timepunch.update(outData, {
             where: {
                 employee_id: userId,
-                date: today
+                date: date
             }
         });
         if (!timepunchData) {
