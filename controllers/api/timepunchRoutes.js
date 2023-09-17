@@ -12,39 +12,22 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Get one timepunch
-// router.get('/:id', async (req, res) => {
-//     try {
-//         const timepunchData = await Timepunch.findByPk(req.params.id, {
-//             include: [{ model: Employee }]
-//         });
-
-//         if (!timepunchData) {
-//             res.status(400).json({ message: 'No time punch with this id.'});
-//             return;
-//         }
-
-//         res.status(200).json(timepunchData);
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// });
-
+// Function to get the dates of the previous Monday and Friday
 function getMondayAndFriday() {
   const today = new Date();
   const dayOfWeek = today.getDay();
   const monday = new Date(today);
   const friday = new Date(today);
 
-  // Calculate the number of days to Monday and Friday in the previous week
+  
   const daysUntilMonday = dayOfWeek === 0 ? -6 : -dayOfWeek + 1;
   const daysUntilFriday = dayOfWeek === 0 ? -2 : 5 - dayOfWeek;
 
-  // Set Monday and Friday accordingly for the previous week
+  
   monday.setDate(today.getDate() + daysUntilMonday);
   friday.setDate(today.getDate() + daysUntilFriday);
 
-  // Format the dates as "yyyy-mm-dd"
+  
   const mondayFormatted = formatDate(monday);
   const fridayFormatted = formatDate(friday);
 
@@ -58,22 +41,20 @@ function formatDate(date) {
   const dd = String(date.getDate()).padStart(2, '0');
   return `${yyyy}-${mm}-${dd}`;
 }
-
+// GET all timpunches for a user between last Monday and Friday
   router.get('/week', async (req, res) => {
     try {
       const userId = req.session.user_id;
       const { start, end } = getMondayAndFriday();
-  
-      // Query the Timepunch model to find time punches of the specified user from last Monday to the following Friday
       const timePunches = await Timepunch.findAll({
         where: {
           employee_id: userId,
           date: {
             [Sequelize.Op.gte]: start,
-            [Sequelize.Op.lte]: end, // Use less than or equal to for the end date
+            [Sequelize.Op.lte]: end, 
           },
         },
-        order: [['date', 'ASC']], // Adjust sorting as needed
+        order: [['date', 'ASC']], 
       });
   
       res.status(200).json(timePunches);
