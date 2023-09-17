@@ -64,7 +64,7 @@ function getMondayAndFriday() {
     return `${yyyy}-${mm}-${dd}`;
   }
 
-  router.get('/week/5', async (req, res) => {
+  router.get('/week/five', async (req, res) => {
     try {
       const userId = req.session.user_id;
       const { start, end } = getMondayAndFriday();
