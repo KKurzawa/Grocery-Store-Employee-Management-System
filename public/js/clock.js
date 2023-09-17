@@ -11,10 +11,28 @@ function btnswitch(event){
         start=false
         count=0
         countertime.innerText="0:0:0"
+        fetch('/api/timepunches/in', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then((res) => res.json())
+        .then((data) => console.log("Successful:", data))
+        .catch((err) => console.error("Error:", err))
     }else{//things to happen when stop is clicked
         stopbtn.style.display="none"
         startbtn.style.display="block"
         start=true
+        fetch('/api/timepunches/out', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then((res) => res.json())
+        .then((data) => console.log("Successful:", data))
+        .catch((err) => console.error("Error:", err))
     }
 }
 
