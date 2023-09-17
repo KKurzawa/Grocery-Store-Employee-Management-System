@@ -1,7 +1,7 @@
 const Employee = require('./Employee');
 const Manager = require('./Manager');
 const Role = require('./Role');
-const Timepunch = require('./Timepunch');
+const Timepunch = require('./TimePunch');
 const Department = require('./Department')
 const User = require('./User')
 

@@ -13,58 +13,53 @@ router.get('/', async (req, res) => {
 });
 
 // Get one timepunch
-router.get('/:id', async (req, res) => {
-    try {
-        const timepunchData = await Timepunch.findByPk(req.params.id, {
-            include: [{ model: Employee }]
-        });
+// router.get('/:id', async (req, res) => {
+//     try {
+//         const timepunchData = await Timepunch.findByPk(req.params.id, {
+//             include: [{ model: Employee }]
+//         });
 
-        if (!timepunchData) {
-            res.status(400).json({ message: 'No time punch with this id.'});
-            return;
-        }
+//         if (!timepunchData) {
+//             res.status(400).json({ message: 'No time punch with this id.'});
+//             return;
+//         }
 
-        res.status(200).json(timepunchData);
-    } catch (err) {
-        res.status(400).json(err);
-    }
-});
+//         res.status(200).json(timepunchData);
+//     } catch (err) {
+//         res.status(400).json(err);
+//     }
+// });
 
 function getMondayAndFriday() {
-    const today = new Date();
-    const dayOfWeek = today.getDay();
-    const monday = new Date(today);
-    const friday = new Date(today);
-  
-    if (dayOfWeek === 1) {
-      // If today is Monday, add 4 days to get to Friday
-      friday.setDate(today.getDate() + 4);
-    } else {
-      // Calculate the number of days to Monday and Friday
-      const daysUntilMonday = 1 - dayOfWeek; // Negative if today is after Monday
-      const daysUntilFriday = 5 - dayOfWeek; // Positive if today is before Friday
-  
-      // Set Monday and Friday accordingly
-      monday.setDate(today.getDate() + daysUntilMonday);
-      friday.setDate(today.getDate() + daysUntilFriday);
-    }
-  
-    // Format the dates as "yyyy-mm-dd"
-    const mondayFormatted = formatDate(monday);
-    const fridayFormatted = formatDate(friday);
-  
-    return { start: mondayFormatted, end: fridayFormatted };
-  }
-  
-  // Function to format a date as "yyyy-mm-dd"
-  function formatDate(date) {
-    const yyyy = date.getFullYear();
-    const mm = String(date.getMonth() + 1).padStart(2, '0');
-    const dd = String(date.getDate()).padStart(2, '0');
-    return `${yyyy}-${mm}-${dd}`;
-  }
+  const today = new Date();
+  const dayOfWeek = today.getDay();
+  const monday = new Date(today);
+  const friday = new Date(today);
 
-  router.get('/week/5', async (req, res) => {
+  // Calculate the number of days to Monday and Friday in the previous week
+  const daysUntilMonday = dayOfWeek === 0 ? -6 : -dayOfWeek + 1;
+  const daysUntilFriday = dayOfWeek === 0 ? -2 : 5 - dayOfWeek;
+
+  // Set Monday and Friday accordingly for the previous week
+  monday.setDate(today.getDate() + daysUntilMonday);
+  friday.setDate(today.getDate() + daysUntilFriday);
+
+  // Format the dates as "yyyy-mm-dd"
+  const mondayFormatted = formatDate(monday);
+  const fridayFormatted = formatDate(friday);
+
+  return { start: mondayFormatted, end: fridayFormatted };
+}
+
+// Function to format a date as "yyyy-mm-dd"
+function formatDate(date) {
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+  router.get('/week', async (req, res) => {
     try {
       const userId = req.session.user_id;
       const { start, end } = getMondayAndFriday();
