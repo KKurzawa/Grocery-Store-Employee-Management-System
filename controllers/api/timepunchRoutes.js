@@ -12,23 +12,23 @@ router.get('/', async (req, res) => {
     }
 });
 
-// // Get one timepunch
-// router.get('/:id', async (req, res) => {
-//     try {
-//         const timepunchData = await Timepunch.findByPk(req.params.id, {
-//             include: [{ model: Employee }]
-//         });
+// Get one timepunch
+router.get('/:id', async (req, res) => {
+    try {
+        const timepunchData = await Timepunch.findByPk(req.params.id, {
+            include: [{ model: Employee }]
+        });
 
-//         if (!timepunchData) {
-//             res.status(400).json({ message: 'No time punch with this id.'});
-//             return;
-//         }
+        if (!timepunchData) {
+            res.status(400).json({ message: 'No time punch with this id.'});
+            return;
+        }
 
-//         res.status(200).json(timepunchData);
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// });
+        res.status(200).json(timepunchData);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
 
 function getMondayAndFriday() {
     const today = new Date();
@@ -64,7 +64,7 @@ function getMondayAndFriday() {
     return `${yyyy}-${mm}-${dd}`;
   }
 
-  router.get('/week', async (req, res) => {
+  router.get('/week/five', async (req, res) => {
     try {
       const userId = req.session.user_id;
       const { start, end } = getMondayAndFriday();

@@ -1,6 +1,6 @@
 // Define an asynchronous function to fetch data
 const fetchData = async () => {
-    const response = await fetch('/api/timepunches/week', {
+    const response = await fetch('/api/timepunches/week/five', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
