@@ -37,13 +37,13 @@ function formatDate(date) {
 }
 // GET all timpunches for a user between last Monday and Friday
   router.get('/week', async (req, res) => {
+    const employeeId = await Employee.findOne({
+      where: {
+        user_id: req.session.user_id
+      }
+    })
+    const empId = employeeId.id;
     try {
-      const employeeId = await Employee.findOne({
-        where: {
-          user_id: req.session.user_id
-        }
-      })
-      const empId = employeeId.id;
       const { start, end } = getMondayAndFriday();
       const timePunches = await Timepunch.findAll({
         where: {
