@@ -19,15 +19,17 @@ function getMondayAndFriday() {
   const monday = new Date(today);
   const friday = new Date(today);
 
-  
-  const daysUntilMonday = dayOfWeek === 0 ? -6 : -dayOfWeek + 1;
-  const daysUntilFriday = dayOfWeek === 0 ? -2 : 5 - dayOfWeek;
+  if (dayOfWeek === 1) {
+    monday.setDate(today.getDate() - 7);
+    friday.setDate(today.getDate() - 3);
+  } else {
+    const daysUntilMonday = dayOfWeek === 0 ? -6 : -dayOfWeek + 1;
+    const daysUntilFriday = dayOfWeek === 0 ? -2 : 5 - dayOfWeek;
 
-  
-  monday.setDate(today.getDate() + daysUntilMonday);
-  friday.setDate(today.getDate() + daysUntilFriday);
+    monday.setDate(today.getDate() + daysUntilMonday);
+    friday.setDate(today.getDate() + daysUntilFriday);
+  }
 
-  
   const mondayFormatted = formatDate(monday);
   const fridayFormatted = formatDate(friday);
 
