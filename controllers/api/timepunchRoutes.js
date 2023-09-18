@@ -15,19 +15,13 @@ router.get('/', async (req, res) => {
 // Function to get the dates of the previous Monday and Friday
 function getMondayAndFriday() {
   const today = new Date();
-  const dayOfWeek = today.getDay();
   const monday = new Date(today);
   const friday = new Date(today);
 
-  
-  const daysUntilMonday = dayOfWeek === 0 ? -6 : -dayOfWeek + 1;
-  const daysUntilFriday = dayOfWeek === 0 ? -2 : 5 - dayOfWeek;
+  monday.setDate(today.getDate() - ((today.getDay() + 6) % 7));
 
-  
-  monday.setDate(today.getDate() + daysUntilMonday);
-  friday.setDate(today.getDate() + daysUntilFriday);
+  friday.setDate(today.getDate() - ((today.getDay() + 2) % 7));
 
-  
   const mondayFormatted = formatDate(monday);
   const fridayFormatted = formatDate(friday);
 
