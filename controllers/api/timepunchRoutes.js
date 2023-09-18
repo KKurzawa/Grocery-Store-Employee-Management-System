@@ -15,15 +15,19 @@ router.get('/', async (req, res) => {
 // Function to get the dates of the previous Monday and Friday
 function getMondayAndFriday() {
   const today = new Date();
+  const dayOfWeek = today.getDay();
   const monday = new Date(today);
   const friday = new Date(today);
 
-  const daysUntilMonday = (today.getDay() + 6) % 7; // Number of days until the previous Monday
-  const daysUntilFriday = (today.getDay() + 2) % 7; // Number of days until the previous Friday
+  
+  const daysUntilMonday = dayOfWeek === 0 ? -6 : -dayOfWeek + 1;
+  const daysUntilFriday = dayOfWeek === 0 ? -2 : 5 - dayOfWeek;
 
-  monday.setDate(today.getDate() - daysUntilMonday);
-  friday.setDate(today.getDate() - daysUntilFriday);
+  
+  monday.setDate(today.getDate() + daysUntilMonday);
+  friday.setDate(today.getDate() + daysUntilFriday);
 
+  
   const mondayFormatted = formatDate(monday);
   const fridayFormatted = formatDate(friday);
 
@@ -39,17 +43,12 @@ function formatDate(date) {
 }
 // GET all timpunches for a user between last Monday and Friday
   router.get('/week', async (req, res) => {
-    const employeeId = await Employee.findOne({
-      where: {
-        user_id: req.session.user_id
-      }
-    })
-    const empId = employeeId.id;
     try {
+      const userId = req.session.user_id;
       const { start, end } = getMondayAndFriday();
       const timePunches = await Timepunch.findAll({
         where: {
-          employee_id: empId,
+          employee_id: userId,
           date: {
             [Sequelize.Op.gte]: start,
             [Sequelize.Op.lte]: end, 
@@ -66,17 +65,12 @@ function formatDate(date) {
   });
 
   router.get('/week/:id', async (req, res) => {
-    const employeeId = await Employee.findOne({
-      where: {
-        user_id: req.params.id
-      }
-    })
-    const empId = employeeId.id;
     try {
+      const userId = req.params.id;
       const { start, end } = getMondayAndFriday();
       const timePunches = await Timepunch.findAll({
         where: {
-          employee_id: empId,
+          employee_id: userId,
           date: {
             [Sequelize.Op.gte]: start,
             [Sequelize.Op.lte]: end, 
