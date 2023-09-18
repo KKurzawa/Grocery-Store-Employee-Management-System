@@ -63,6 +63,33 @@ function formatDate(date) {
     }
   });
 
+  router.get('/week/:id', async (req, res) => {
+    const employeeId = await Employee.findOne({
+      where: {
+        user_id: req.params.id
+      }
+    })
+    const empId = employeeId.id;
+    try {
+      const { start, end } = getMondayAndFriday();
+      const timePunches = await Timepunch.findAll({
+        where: {
+          employee_id: empId,
+          date: {
+            [Sequelize.Op.gte]: start,
+            [Sequelize.Op.lte]: end, 
+          },
+        },
+        order: [['date', 'ASC']], 
+      });
+  
+      res.status(200).json(timePunches);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
 // CREATE a timepunch
 router.post('/in', async (req, res) => {
     const employeeId = await Employee.findOne({
