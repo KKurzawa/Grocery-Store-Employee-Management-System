@@ -45,34 +45,18 @@ function formatDate(date) {
 }
 // GET all timpunches for a user between last Monday and Friday
   router.get('/week', async (req, res) => {
+    const employeeId = await Employee.findOne({
+      where: {
+        user_id: req.session.user_id
+      }
+    })
+    const empId = employeeId.id;
     try {
       const userId = req.session.user_id;
       const { start, end } = getMondayAndFriday();
       const timePunches = await Timepunch.findAll({
         where: {
-          employee_id: userId,
-          date: {
-            [Sequelize.Op.gte]: start,
-            [Sequelize.Op.lte]: end, 
-          },
-        },
-        order: [['date', 'ASC']], 
-      });
-  
-      res.status(200).json(timePunches);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Internal server error' });
-    }
-  });
-
-  router.get('/week/:id', async (req, res) => {
-    try {
-      const userId = req.params.id;
-      const { start, end } = getMondayAndFriday();
-      const timePunches = await Timepunch.findAll({
-        where: {
-          employee_id: userId,
+          employee_id: empId,
           date: {
             [Sequelize.Op.gte]: start,
             [Sequelize.Op.lte]: end, 
