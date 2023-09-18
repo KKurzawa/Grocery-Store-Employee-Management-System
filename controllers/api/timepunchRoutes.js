@@ -44,11 +44,16 @@ function formatDate(date) {
 // GET all timpunches for a user between last Monday and Friday
   router.get('/week', async (req, res) => {
     try {
-      const userId = req.session.user_id;
+      const employeeId = await Employee.findOne({
+        where: {
+          user_id: req.session.user_id
+        }
+      })
+      const empId = employeeId.id;
       const { start, end } = getMondayAndFriday();
       const timePunches = await Timepunch.findAll({
         where: {
-          employee_id: userId,
+          employee_id: empId,
           date: {
             [Sequelize.Op.gte]: start,
             [Sequelize.Op.lte]: end, 
@@ -66,12 +71,18 @@ function formatDate(date) {
 
 // CREATE a timepunch
 router.post('/in', async (req, res) => {
+    const employeeId = await Employee.findOne({
+      where: {
+        user_id: req.session.user_id
+      }
+    })
+    const empId = employeeId.id;
     const date = new Date().toISOString().slice(0, 10);
     const time = new Date().toLocaleTimeString([], { hour12: false });
     const inData = {
         date: date,
         clock_in: time,
-        employee_id: req.session.user_id
+        employee_id: empId
     };
  
     try {
@@ -84,7 +95,12 @@ router.post('/in', async (req, res) => {
 
 // UPDATE a timepunch
 router.put('/out', async (req, res) => {
-    const userId = req.session.user_id;
+    const employeeId = await Employee.findOne({
+      where: {
+        user_id: req.session.user_id
+      }
+    })
+    const empId = employeeId.id;
     const date = new Date().toISOString().slice(0, 10);
     const time = new Date().toLocaleTimeString([], { hour12: false });
     const outData = {
@@ -93,7 +109,7 @@ router.put('/out', async (req, res) => {
     try {
         const timepunchData = await Timepunch.update(outData, {
             where: {
-                employee_id: userId,
+                employee_id: empId,
                 date: date
             }
         });
