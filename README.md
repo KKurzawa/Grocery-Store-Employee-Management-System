@@ -27,7 +27,7 @@ Once employee clocks in, the clock-in ('Start Work') button changes to the clock
 ![Clock2](./assets/images/Clock2.png)
 
 If you click on the questions button on the navbar it will direct you to this page where you can either submit a request for time-off or ask management other questions.
-![Questions](./assets/images/questions.png)
+![Questions](https://github.com/KKurzawa/Grocery-Store-Employee-Management-System/blob/main/assets/images/Questions.png)
 
 Website URL: https://secure-gorge-43395-b510f5266de9.herokuapp.com
 
