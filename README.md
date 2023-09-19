@@ -5,6 +5,10 @@
 
 Businesses and their employees need a way to keep track of employee schedules.  This employee management system for Grady's Groceries allows employees to see their role, shedule for the week, available hours for sick time off and vacation hours.  The employee can also see a graph of hours worked in the previous week, punch in and out for each shift, and submit any questions for management and request time off.  This site uses Handlebars, CSS, JavaScript, Bootstrap, Express, MySql, MySql2, Node, Apexcharts, Sequalize, JawsDb, Heroku, and Bcrypt.
 
+## Tests
+
+To view the site use: 'Username: r.huffman' and 'Password: test123'.
+
 ## Usage
 
 Once the user logs in they are brought to their profile page that displays their schedule for the week.  From there the user can click on the 'Clock' button to clock in/out for a shift and click on the 'Time Card' button to view a graph of the previous weeks hours. The user also can click on the 'User' button to log out or view their profile page or click on the 'Questions' button to request time off or submit questions to management.
