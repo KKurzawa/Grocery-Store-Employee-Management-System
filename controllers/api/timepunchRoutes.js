@@ -15,25 +15,23 @@ router.get('/', async (req, res) => {
 // Function to get the dates of the previous Monday and Friday
 function getMondayAndFriday() {
   const today = new Date();
-  const dayOfWeek = today.getDay();
-  const monday = new Date(today);
-  const friday = new Date(today);
+  const currentDayOfWeek = today.getDay();
+  const daysToSubtract = currentDayOfWeek === 0 ? 6 : currentDayOfWeek - 1;
+  const priorMonday = new Date(today);
+  const priorFriday = new Date(today);
 
-  if (dayOfWeek === 1) {
-    monday.setDate(today.getDate() - 7);
-    friday.setDate(today.getDate() - 3);
+  if (currentDayOfWeek === 0 || currentDayOfWeek === 6) {
+    priorMonday.setDate(today.getDate() - daysToSubtract - 3);
+    priorFriday.setDate(today.getDate() - daysToSubtract - 1);
   } else {
-    const daysUntilMonday = dayOfWeek === 0 ? -6 : -dayOfWeek + 1;
-    const daysUntilFriday = dayOfWeek === 0 ? -2 : 5 - dayOfWeek;
-
-    monday.setDate(today.getDate() + daysUntilMonday);
-    friday.setDate(today.getDate() + daysUntilFriday);
+    priorMonday.setDate(today.getDate() - daysToSubtract - 7);
+    priorFriday.setDate(priorMonday.getDate() + 4);
   }
 
-  const mondayFormatted = formatDate(monday);
-  const fridayFormatted = formatDate(friday);
+  const priorMondayFormatted = formatDate(priorMonday);
+  const priorFridayFormatted = formatDate(priorFriday);
 
-  return { start: mondayFormatted, end: fridayFormatted };
+  return { start: priorMondayFormatted, end: priorFridayFormatted };
 }
 
 // Function to format a date as "yyyy-mm-dd"
@@ -43,6 +41,7 @@ function formatDate(date) {
   const dd = String(date.getDate()).padStart(2, '0');
   return `${yyyy}-${mm}-${dd}`;
 }
+
 // GET all timpunches for a user between last Monday and Friday
   router.get('/week', async (req, res) => {
     const employeeId = await Employee.findOne({
